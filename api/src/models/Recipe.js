@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
       defaultValue: uuidV4,
       primaryKey: true
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
     healthScore: {
       type: DataTypes.INTEGER
     },
-    instructions: {
+    steps: {
       type: DataTypes.TEXT
     }
   }, {timestamps: false});

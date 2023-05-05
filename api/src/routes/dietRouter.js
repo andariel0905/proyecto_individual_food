@@ -1,7 +1,7 @@
 const{Router} = require('express');
-const getDiets = require("../controllers/getDiets")
+const {getDietsHandler} = require("../handlers/dietHandler")
 const router = Router();
 
-router.get("/", getDiets);
+router.get("/", getDietsHandler);
 
 module.exports = router;

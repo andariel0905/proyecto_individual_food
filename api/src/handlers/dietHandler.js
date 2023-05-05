@@ -1,3 +1,7 @@
-async function getDiets (req,res) {};
+const { getDietsTypesDB } = require("../controllers/dietController");
 
-module.exports = {getDiets};
+const getDietsHandler = async (req, res) => {
+  res.send(await getDietsTypesDB());
+};
+
+module.exports = { getDietsHandler };

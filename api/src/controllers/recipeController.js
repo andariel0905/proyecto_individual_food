@@ -1,6 +1,7 @@
 const axios = require("axios");
 const { API,API_KEY } = process.env;
 const {Recipe} = require("../db");
+const {Diet} = require("../db");
 
 async function getRecipeById (id) {
     const source = isNaN(id) ? "db" : "api";
@@ -9,11 +10,11 @@ async function getRecipeById (id) {
         const {data} = await axios.get(`${API}/${id}/information?apiKey=${API_KEY}`);
         return {
             id,
-            name:data.title,
+            title:data.title,
             image:data.image,
             summary:data.summary,
             healthScore:data.healthScore,
-            instructions: data.analyzedInstructions[0].steps,
+            steps: data.analyzedInstructions[0].steps,
             diets:data.diets
         }
     }
@@ -28,14 +29,15 @@ const getRecipesAPI = async () => {
 	return responseApi.data.results.map((x) => {
 		return {
 			id: x.id,
-			name: x.title,
+			title: x.title,
 			summary: x.summary,
 			healthScore: x.healthScore,
-			instructions: x.steps,
+			steps: x.steps,
 			image:
 				x.image ||
 				"https://st3.depositphotos.com/1064969/18252/v/450/depositphotos_182528054-stock-illustration-flat-grayscale-icon-burger.jpg",
 			diets: x.diets.map((y) => y),
+			origin: "API"
 		};
 	});
 };
@@ -50,14 +52,15 @@ const getRecipesDB = async () => {
 	return await res.map((x) => {
 		return {
 			id: x.dataValues.id,
-			name: x.dataValues.title,
+			title: x.dataValues.title,
 			summary: x.dataValues.summary,
 			healthScore: x.dataValues.healthScore,
-			instructions: x.dataValues.steps,
+			steps: x.dataValues.steps,
 			image:
 				x.dataValues.image ||
 				"https://st3.depositphotos.com/1064969/18252/v/450/depositphotos_182528054-stock-illustration-flat-grayscale-icon-burger.jpg",
 			diets: x.dataValues.diets.map((y) => y.name),
+			origin: "BDD"
 		};
 	});
 };
