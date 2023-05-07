@@ -1,0 +1,66 @@
+.pageContainer {
+    background-image: linear-gradient(to right, #000000d8, #000000);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top: groove 4px #5a4d37;
+}
+.pageContainer .pageButtons {
+    margin-top: 0.5em;
+    display: flex;
+    justify-content: center;
+    gap:0.2em;    
+}
+.pageContainer p {
+    font-family: 'Raleway semibold';
+    font-size: 1.2em;
+}
+
+
+.pageButtons .prev{
+    font-family: 'Raleway bold';
+    font-size:1em;
+    color:white;
+    background-color: #8a7c69;
+    padding: 0.3em;
+    border:none;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+.pageButtons .buttons {
+    font-family: 'Raleway bold';
+    font-size:1em;
+    color:white;
+    background-color: #8a7c69;
+    margin: 0.2em;
+    padding: 0.3em;
+    width: 30px;
+    border:none;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+.pageButtons .next{
+    font-family: 'Raleway bold';
+    font-size:1em;
+    color:white;
+    background-color: #8a7c69;
+    padding: 0.3em;
+    border:none;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 1px 2px 2px rgba(255, 255, 255, 0.4);
+}
+
+.cardsContainer {
+    padding: 2em;
+    background-image: url("../../images/cardsContainer.jpg");
+    background-size: cover;
+    background-position: 100%;
+    display: flex; 
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	gap: 80px 50px;
+}

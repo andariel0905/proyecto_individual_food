@@ -1,4 +1,5 @@
 import React from 'react';
+import "./App.css";
 import {Route, useLocation, Switch} from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Landing from './views/Landing/Landing';
@@ -10,13 +11,13 @@ function App() {
   const location = useLocation();
   return (
     <div className="App">
-      {location.pathname !== "/" && <NavBar/>}
+      {location.pathname !== "/" && <NavBar location={location.pathname}/>}
       <Switch>
-      <Route exact path="/" component={Landing} />
-      <Route exact path="/home" component={Home} />
-      <Route exact path="/recipe/:id" component={CardDetail} />
-      <Route exact path="/create" component={Form} />
-    </Switch>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/recipe/:id" component={CardDetail} />
+        <Route exact path="/create" component={Form} />
+      </Switch>
     </div>
   );
 }

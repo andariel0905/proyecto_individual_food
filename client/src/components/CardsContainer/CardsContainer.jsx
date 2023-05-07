@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./CardsContainer.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/actions";
 import Card from "../Card/Card";
@@ -31,7 +32,7 @@ const CardsContainer= () => {
     const pageButtons = [];
     for (let i = 1; i <= totalPages; i++) {
         pageButtons.push(
-            <button key={i} onClick={() => handlePageChange(i)}>
+            <button key={i} onClick={() => handlePageChange(i)} className={styles.buttons}>
             {i}
             </button>
         )
@@ -44,13 +45,15 @@ const CardsContainer= () => {
     return (
         <div>
             <CardsBar/>
-            <div>
-                <h5>Current page: {currentPage}</h5>
-                <button onClick={handlePrev}>Prev</button>
-                {pageButtons}
-                <button onClick={handleNext}>Next</button>
+            <div className={styles.pageContainer}>
+                <p>Current page: {currentPage}</p>
+                <div className={styles.pageButtons}>
+                    <button onClick={handlePrev} className={styles.prev}>Prev</button>
+                    {pageButtons}
+                    <button onClick={handleNext} className={styles.next}>Next</button>
+                </div>
             </div>
-            <div>
+            <div className={styles.cardsContainer}>
                 {recipes ? recipes.slice(startIndex, endIndex).map(recipe => {
                     return <Card
                         key={recipe.id}

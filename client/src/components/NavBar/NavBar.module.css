@@ -1,0 +1,27 @@
+.navBar {
+    background-image: linear-gradient(to right, #000000d8, #000000);
+    display: flex; 
+    align-items: center;
+    justify-content:space-around;
+    height: 80px;
+}
+
+.link {
+    background-image: linear-gradient(109.6deg,#8a7c69,#bda57b);
+    font-family: 'Raleway semibold';
+    color: #f2f4eecc;
+    font-size: 1.8em;
+    padding: 4px 12px;
+    text-align: center;
+    border: none;
+    border-radius: 20px 10px 20px 10px;
+    cursor:pointer;
+    box-shadow: 2px 3px 7px rgba(255, 255, 255, 0.4);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.link:hover  {
+    background-image: linear-gradient(109.6deg,#dabd8b9d,#dabd8bc7);
+    color: #f2f4ee;
+    box-shadow: 2px 3px 4px rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}

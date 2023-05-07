@@ -4,15 +4,14 @@ import {
     GET_RECIPE_DETAIL,
     GET_DIETS,
     SORT,
-    FILTER_RECIPES,
-    GET_PAGE
+    FILTER_RECIPES
 } from "./types"
 
 const initialState = {
     allRecipes:[],
     activeRecipes:[],
-    activeSort:"",
-    activeFilter:"",
+    activeSort:"default",
+    activeFilter:"todas",
     defaultRecipeSort:[],
     recipeDetail:{},
     diets:[],
@@ -20,7 +19,7 @@ const initialState = {
 
 function sort (recipesToSort, sortType) {
     if (sortType === "default") {
-        recipesToSort  = recipesToSort ;
+        return recipesToSort;
     }
     if (sortType === "A") {
         recipesToSort.sort((a,b) => (a.title > b.title ? 1 : -1))

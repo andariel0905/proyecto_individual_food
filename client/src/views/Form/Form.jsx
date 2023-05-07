@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from './Form.module.css';
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/actions";
 import validate from './validate';
@@ -50,47 +51,51 @@ const Form = () => {
 
     return (
         <div>
-            <h2>Crea tu receta</h2>
-            <form onSubmit={submitHandler}>
-				<label>Nombre de la receta</label>
-				<input type="text" value={form.title} name="title" onChange={changeHandler}/>
-				{errors.title && <p>{errors.title}</p>}
+            <header className={styles.header}>
+                <h2>Crea una receta</h2>
+            </header>
+			<div className={styles.formContainer}>
+				<form onSubmit={submitHandler} className={styles.form}>
+					<label>Nombre de la receta</label>
+					<input type="text" value={form.title} name="title" onChange={changeHandler}/>
+					{errors.title && <p>{errors.title}</p>}
 
-				<label>Resumen</label>
-				<textarea type="" value={form.summary} name="summary" onChange={changeHandler}/>
-				{errors.summary && <p>{errors.summary}</p>}
+					<label>Resumen</label>
+					<textarea type="" value={form.summary} name="summary" onChange={changeHandler}/>
+					{errors.summary && <p>{errors.summary}</p>}
 
-				<label>Nivel de comida saludable</label>
-				<input type="number" value={form.healthScore} name="healthScore" onChange={changeHandler}/>
-				{errors.healthScore && <p>{errors.healthScore}</p>}
+					<label>Nivel de comida saludable</label>
+					<input type="number" value={form.healthScore} name="healthScore" onChange={changeHandler}/>
+					{errors.healthScore && <p>{errors.healthScore}</p>}
 
-				<label>Pasos</label>
-				<input type="text" value={form.steps} name="steps" onChange={changeHandler}/>
-				{errors.steps && <p>{errors.steps}</p>}
+					<label>Pasos</label>
+					<input type="text" value={form.steps} name="steps" onChange={changeHandler}/>
+					{errors.steps && <p>{errors.steps}</p>}
 
-				<label>Dietas</label>
-				{diets.map((diet) => {
-					return (
-						<div key={diet.id}>
-							<label htmlFor="">
-								<input type="checkbox" onChange={changeHandler} name="diets" value={diet.id}/>
-								{diet.name}
-							</label>
-						</div>
-					);
-				})}
-				{!form.diets.length && <p>Seleccione al menos una dieta</p>}
+					<label>Dietas</label>
+					{diets.map((diet) => {
+						return (
+							<div key={diet.id}>
+								<label htmlFor="">
+									<input type="checkbox" onChange={changeHandler} name="diets" value={diet.id}/>
+									{diet.name}
+								</label>
+							</div>
+						);
+					})}
+					{!form.diets.length && <p>Seleccione al menos una dieta</p>}
 
-				{!errors.count && form.diets.length > 0 ? (
-					<button type="submit">
-						Enviar
-					</button>
-				) : (
-					<button type="submit" disabled>
-						Enviar
-					</button>
-				)}
-			</form>
+					{!errors.count && form.diets.length > 0 ? (
+						<button type="submit">
+							Enviar
+						</button>
+					) : (
+						<button type="submit" disabled>
+							Enviar
+						</button>
+					)}
+				</form>
+			</div>
         </div>
     );
 };

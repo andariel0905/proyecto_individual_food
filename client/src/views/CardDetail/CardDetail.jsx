@@ -27,7 +27,7 @@ const CardDetail = () => {
     
     return (
         <div>
-            <img src={recipe.image}/>
+            <img alt={recipe.title} src={recipe.image}/>
             <p>ID: {recipe.id}</p>
             <h3>{recipe.title}</h3>
             <p>{recipe.summary && removeTags(recipe.summary)}</p>

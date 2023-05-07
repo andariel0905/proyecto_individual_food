@@ -6,8 +6,7 @@ import {
     GET_RECIPE_DETAIL,
     GET_DIETS,
     SORT,
-    FILTER_RECIPES,
-    GET_PAGE
+    FILTER_RECIPES
 } from "./types"
 
 export const getAllRecipes = () => async (dispatch) => {
