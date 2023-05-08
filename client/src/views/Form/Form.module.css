@@ -1,10 +1,13 @@
 .header {
+    border-top: groove 4px #5a4d37;
     background-image: url("../../images/form.jpg");
     background-size: cover;
 	background-position: 100%;
     height:150px;
 }
-h2 {
+.header h2 {
+    font-family: 'Playfair Display';
+    letter-spacing: 2px;
     background-color: rgba(0, 0, 0, 0.651);
     color:white;
     text-align: center;
@@ -17,7 +20,6 @@ h2 {
 .formContainer {
     display: flex;
     justify-content: center;
-    border-top: groove 4px #5a4d37;
     background-image: linear-gradient(to right, #000000d8, #000000);
     padding:5em;
 }
@@ -25,13 +27,81 @@ h2 {
 .form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 3.5em;
+	gap: 20px;
     border-radius: 30px;
-    border: none;
-    background-color: aqua;
+    border: solid 3px #5a4d3746;
+    background-color: #5a4d3786;
     width: 70%
 }
 .form label {
+    text-align: center;
+    font-family: 'Raleway semibold';
+    font-size: 1.3em;
     color: white;
+    margin-top: 1.2em;
+}
+
+.form .inputTitle {
+    color:white;
+    font-size: 1.1em;
+    line-height: 1.3em;
+    padding: 0px 8px;
+    background-image: linear-gradient(to right, #000000ec, #000000);
+    border-radius: 15px;
+    border: solid 3px #00000091;
+    height: 2.3em;
+}
+
+.form textarea {
+    color:white;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 5px 8px;
+    background-image: linear-gradient(to right, #000000e8, #000000);
+    border-radius: 15px;
+    border: solid 3px #00000091;
+    height: 10em;
+}
+
+.dietContainer {
+    background-image: linear-gradient(to right, #00000088, #000000);
+    border-radius: 15px;
+    padding: 5px 1em;
+    width:fit-content;
+}
+.inputDiet {
+    margin-right: 1em;
+}
+
+.form p {
+    color: rgb(207, 27, 27);
+}
+
+.formButton {
+    background-color: #ffffffb0;
+    margin-top: 1em;
+    font-family: 'Raleway bold';
+    font-size: 2em;
+    padding: 5px 0px;
+    color: #000000be;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.formButton:hover {
+    background-color: #ffffffea;
+    color: #000000;
+}
+
+.formButton:disabled {
+    background-color: #ffffff60;
+    margin-top: 1em;
+    font-family: 'Raleway bold';
+    font-size: 2em;
+    padding: 5px 0px;
+    color: #0000008c;
+    border-radius: 4px;
+	box-shadow: inset 3px 3px 1px #181c20, inset -3px -3px 1px #38444e;
+	cursor: inherit;
 }

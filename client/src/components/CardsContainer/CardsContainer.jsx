@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./CardsContainer.module.css";
-import { useSelector, useDispatch } from "react-redux";
-import * as actions from "../../redux/actions";
+import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import CardsBar from "../CardsBar/CardsBar";
 
 const CardsContainer= () => {
-
-    const dispatch = useDispatch();
-
-    useEffect(()=>(dispatch(actions.getAllRecipes())),[]);
-
     const recipes = useSelector(state => state.activeRecipes);
 
     const RECIPES_PER_PAGE = 9;
@@ -67,6 +61,14 @@ const CardsContainer= () => {
                     /> 
                 })
                 : <p>Loading...</p>}
+            </div>
+            <div className={styles.pageContainer}>
+                <p>Current page: {currentPage}</p>
+                <div className={styles.pageButtons}>
+                    <button onClick={handlePrev} className={styles.prev}>Prev</button>
+                    {pageButtons}
+                    <button onClick={handleNext} className={styles.next}>Next</button>
+                </div>
             </div>
         </div>
     );

@@ -47,6 +47,7 @@ const Form = () => {
     function submitHandler(e) {
 		e.preventDefault();
 		axios.post("http://localhost:3001/recipes", form).then((res) => alert(res));
+		setForm({ title: '', summary: '', healthScore: '', steps: '', diets: [] }); 
 	};
 
     return (
@@ -57,7 +58,7 @@ const Form = () => {
 			<div className={styles.formContainer}>
 				<form onSubmit={submitHandler} className={styles.form}>
 					<label>Nombre de la receta</label>
-					<input type="text" value={form.title} name="title" onChange={changeHandler}/>
+					<input className={styles.inputTitle} type="text" value={form.title} name="title" onChange={changeHandler}/>
 					{errors.title && <p>{errors.title}</p>}
 
 					<label>Resumen</label>
@@ -65,19 +66,19 @@ const Form = () => {
 					{errors.summary && <p>{errors.summary}</p>}
 
 					<label>Nivel de comida saludable</label>
-					<input type="number" value={form.healthScore} name="healthScore" onChange={changeHandler}/>
+					<input className={styles.inputTitle} type="number" value={form.healthScore} name="healthScore" onChange={changeHandler}/>
 					{errors.healthScore && <p>{errors.healthScore}</p>}
 
 					<label>Pasos</label>
-					<input type="text" value={form.steps} name="steps" onChange={changeHandler}/>
+					<input className={styles.inputTitle} type="text" value={form.steps} name="steps" onChange={changeHandler}/>
 					{errors.steps && <p>{errors.steps}</p>}
 
 					<label>Dietas</label>
 					{diets.map((diet) => {
 						return (
-							<div key={diet.id}>
+							<div key={diet.id} className={styles.dietContainer}>
 								<label htmlFor="">
-									<input type="checkbox" onChange={changeHandler} name="diets" value={diet.id}/>
+									<input className={styles.inputDiet} type="checkbox" onChange={changeHandler} name="diets" value={diet.id}/>
 									{diet.name}
 								</label>
 							</div>
@@ -86,11 +87,11 @@ const Form = () => {
 					{!form.diets.length && <p>Seleccione al menos una dieta</p>}
 
 					{!errors.count && form.diets.length > 0 ? (
-						<button type="submit">
+						<button type="submit" className={styles.formButton}>
 							Enviar
 						</button>
 					) : (
-						<button type="submit" disabled>
+						<button type="submit" disabled className={styles.formButton}>
 							Enviar
 						</button>
 					)}

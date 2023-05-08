@@ -6,8 +6,14 @@ import Landing from './views/Landing/Landing';
 import Home from './views/Home/Home';
 import Form from './views/Form/Form';
 import CardDetail from './views/CardDetail/CardDetail';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import * as actions from "./redux/actions";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(()=>(dispatch(actions.getAllRecipes())),[]);
+  useEffect(() =>(dispatch(actions.getDiets())), []);
   const location = useLocation();
   return (
     <div className="App">

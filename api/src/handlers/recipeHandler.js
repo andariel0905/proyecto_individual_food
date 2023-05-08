@@ -28,8 +28,12 @@ async function getRecipesHandler (req,res) {
 
 async function getRecipeHandler (req,res) {
     const {id} = req.params;
-    const recipe = await getRecipeById(id);
-    res.status(200).json(recipe);
+	try {
+		const recipe = await getRecipeById(id);
+		res.status(200).json(recipe);
+	} catch (error) {
+		res.status(400).send(error.message);
+	}
 };
 
 

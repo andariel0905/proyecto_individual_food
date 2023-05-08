@@ -13,18 +13,27 @@ module.exports = (sequelize) => {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true
     },
     image: {
       type: DataTypes.STRING
     },
     summary: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      allowNull: false
     },
     healthScore: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        checkHealthScore(value) {
+          if (value < 0 || value > 100){ 
+            throw new Error('El Health Score debe ser un valor entre 0 y 100');
+      }}}
     },
     steps: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      allowNull: false
     }
   }, {timestamps: false});
 };

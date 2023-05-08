@@ -1,9 +1,18 @@
 .navBar {
     background-image: linear-gradient(to right, #000000d8, #000000);
     display: flex; 
+    justify-content: space-evenly;
     align-items: center;
-    justify-content:space-around;
     height: 80px;
+}
+
+.navBar h2 {
+    font-size: 2em;
+    background-image: linear-gradient(to right, #0FAE09, #89f856);
+    background-clip: text;
+    color: transparent;
+    height: fit-content;
+    width: fit-content;
 }
 
 .link {
@@ -14,7 +23,7 @@
     padding: 4px 12px;
     text-align: center;
     border: none;
-    border-radius: 20px 10px 20px 10px;
+    border-radius: 20px 5px 20px 5px;
     cursor:pointer;
     box-shadow: 2px 3px 7px rgba(255, 255, 255, 0.4);
     transition: box-shadow 0.3s ease, transform 0.3s ease;

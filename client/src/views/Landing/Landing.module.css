@@ -33,8 +33,6 @@
 .landing h1 {
     font-size: 5em;
     background-image: linear-gradient(to right, #0FAE09, #89f856);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
     background-clip: text;
     color: transparent;
 }

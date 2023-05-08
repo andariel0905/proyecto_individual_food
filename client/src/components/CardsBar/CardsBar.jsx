@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./CardsBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from '../../redux/actions';
@@ -8,12 +8,6 @@ function CardsBar () {
     const [nameSearch, setNameSearch] = useState("");
     
     const diets = useSelector(state => state.diets);
-    
-    useEffect(() => {
-		if (!diets.length) {
-			dispatch(actions.getDiets());
-		}
-	}, []);
 
     function nameHandler(e) {
 		setNameSearch(e.target.value);
