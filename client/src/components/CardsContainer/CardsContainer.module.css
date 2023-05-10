@@ -8,6 +8,7 @@
     margin-top: 0.5em;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap:0.2em;    
 }
 .pageContainer p {
@@ -21,10 +22,10 @@
     font-size:1em;
     color:white;
     background-color: #8a7c69;
-    margin-right: 3px;
-    padding: 0.3em;
+    margin-right: 0.2em;
+    padding: 0.4em;
     border:none;
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0px 2em 2em 0px;
     transition: all 0.2s ease-in-out;
 }
 .pageButtons .buttons {
@@ -33,10 +34,10 @@
     color:white;
     background-color: #8a7c69;
     margin: 0.2em;
-    padding: 0.3em;
-    width: 30px;
+    padding: 0.2em;
+    width: 2.5em;
     border:none;
-    border-radius: 20px;
+    border-radius: 2em;
     transition: all 0.2s ease-in-out;
 }
 .pageButtons .next{
@@ -44,10 +45,10 @@
     font-size:1em;
     color:white;
     background-color: #8a7c69;
-    margin-left: 3px;
-    padding: 0.3em;
+    margin-left: 0.2em;
+    padding: 0.4em;
     border:none;
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 2em 0px 0px 2em;
     transition: all 0.2s ease-in-out;
 }
 
@@ -66,5 +67,5 @@
     display: flex; 
 	flex-flow: row wrap;
 	justify-content: space-evenly;
-	gap: 80px 50px;
+	gap: 8em 5em;
 }

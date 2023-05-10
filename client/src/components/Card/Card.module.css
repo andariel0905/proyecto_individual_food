@@ -7,12 +7,12 @@
     padding-bottom: 0.8em;
     margin-left: 1em;
     margin-right: 1em;
-    width:250px;
-    min-height: 400px;
+    width:17em;
+    min-height: 25em;
     background: linear-gradient(145deg, #252d2370, #2a362ca9);
     backdrop-filter: blur(2px);
     border: none;
-    border-radius: 20px;
+    border-radius: 2em;
     transition: all 0.2s ease-in-out;
     box-shadow: 0px 12px 31px -7px rgba(255, 255, 255, 0.486);
 }
@@ -22,19 +22,18 @@
     backdrop-filter: none;
 }
 .card img {
-    border-radius: 200px;
+    border-radius: 10em;
     border: 1px solid rgb(67, 67, 67);
-    width: 210px;
-	height: 210px;
+    width: 13em;
+	height: 13em;
 	object-fit: cover;
 } 
 .card h3 {
     text-align: center;    
     background-image: linear-gradient(to right, #0FAE09, #89f856);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
     background-clip: text;
     color: transparent;
+    margin:0.15em;
 }
 .card p {
     color: #f2f4ee;
@@ -51,9 +50,9 @@
 .dietsContainer span {
     font-family: 'Raleway semibold';
     font-size: 0.9em;
-    border-radius: 20px 5px 20px 5px;
-    padding: 5px;
-    margin: 5px;
+    border-radius: 0.5em 0.2em 0.5em 0.2em;
+    padding: 0.2em;
+    margin: 0.2em;
     background-color: #f4f2eeef;
     color: #0FAE09;
     box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.486);
