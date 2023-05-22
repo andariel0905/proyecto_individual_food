@@ -5,7 +5,10 @@ import * as actions from '../../redux/actions';
 
 function CardsBar () {
     const dispatch = useDispatch();
+    
     const [nameSearch, setNameSearch] = useState("");
+    const [sortValue, setSortValue] = useState("default");
+    const [filterValue, setFilterValue] = useState("todas");
     
     const diets = useSelector(state => state.diets);
 
@@ -15,13 +18,17 @@ function CardsBar () {
     
     function getRecipeName(name) {
 		dispatch(actions.getRecipeByName(name));
+        setSortValue("default");
+        setFilterValue("todas");
 	};
 
     function sortHandler (e) {
+        setSortValue(e.target.value);
         dispatch(actions.sort(e.target.value));
     };
 
     function filterHandler (e) {
+        setFilterValue(e.target.value);
         dispatch(actions.filterRecipes(e.target.value));
     };
     return (
@@ -40,7 +47,7 @@ function CardsBar () {
             <div className={styles.selectContainer}>
                 <div className={styles.sort}>
                     <p>Ordenar</p>
-                    <select onChange={sortHandler} className={styles.select}>
+                    <select onChange={sortHandler} value={sortValue} className={styles.select}>
                         <option value="default">Default</option>
                         <option value="A">A-z</option>
                         <option value="D">Z-a</option>
@@ -50,7 +57,7 @@ function CardsBar () {
                 </div>
                 <div className={styles.filter}>
                     <p>Filtrar</p>
-                    <select onChange={filterHandler} className={styles.select}>
+                    <select onChange={filterHandler} value={filterValue} className={styles.select}>
                         <option value="todas">Mostrar todas</option>
                         {diets.map((diet) => {
                             return <option value={diet.name}>{diet.name}</option>

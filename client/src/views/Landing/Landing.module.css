@@ -1,6 +1,7 @@
 .landing {
 	display: flex;
 	align-items: center;
+    justify-content: center;
 	min-height: 100vh;
 	background: url("../../images/landing.jpg");
 	background-size: cover;
@@ -9,13 +10,11 @@
 
 .landing .container {
 	display: flex;
-	padding: 0 13%;
-	margin: auto;
+	padding: 1.5em;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	gap: 3em;
-
+    width: 40em;
     height: 30em;
     background-color: rgba(0, 0, 0, 0.781);
     border-radius:3.6em;
@@ -26,7 +25,6 @@
 .landing .container p {
     font-family: 'Raleway bold';
     font-size: 3em;
-	line-height: 1em;
     color:#f2f4eee3;
 }
 

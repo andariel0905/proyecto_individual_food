@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import styles from "./CardsContainer.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card/Card";
 import CardsBar from "../CardsBar/CardsBar";
+import * as actions from "../../redux/actions";
 
 const CardsContainer= () => {
-    const recipes = useSelector(state => state.activeRecipes);
+    const dispatch = useDispatch();
+    useEffect(()=>(dispatch(actions.getAllRecipes())),[]);
 
+    const recipes = useSelector(state => state.activeRecipes);
+    const reduxState = useSelector(state => state);
+    
+    
     const RECIPES_PER_PAGE = 9;
+
     const [currentPage, setCurrentPage] = useState(1);
 
     const startIndex = (currentPage - 1) * RECIPES_PER_PAGE;
@@ -17,11 +24,7 @@ const CardsContainer= () => {
 
     const totalPages = Math.ceil(recipes.length / RECIPES_PER_PAGE);
 
-    useEffect(() => {
-        if(totalPages && currentPage > totalPages){
-            setCurrentPage(totalPages)
-        }
-    },[totalPages]);
+    useEffect(() => {setCurrentPage(1)},[reduxState.activeFilter, reduxState.activeSort]);
 
     const pageButtons = [];
     for (let i = 1; i <= totalPages; i++) {

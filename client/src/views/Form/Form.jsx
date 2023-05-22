@@ -46,7 +46,9 @@ const Form = () => {
 
     function submitHandler(e) {
 		e.preventDefault();
-		axios.post("http://localhost:3001/recipes", form).then((res) => alert(res));
+		axios.post("http://localhost:3001/recipes", form)
+			.then(res => alert(res.data))
+			.catch(error => alert(error.message));
 		setForm({ title: '', summary: '', healthScore: '', steps: '', diets: [] }); 
 	};
 

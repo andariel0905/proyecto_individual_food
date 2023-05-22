@@ -9,12 +9,13 @@ import {
 
 const initialState = {
     allRecipes:[],
+    recipesByName:[],
     activeRecipes:[],
     activeSort:"default",
     activeFilter:"todas",
     defaultRecipeSort:[],
     recipeDetail:{},
-    diets:[],
+    diets:[]
 }
 
 function sort (recipesToSort, sortType) {
@@ -56,23 +57,15 @@ function filter (recipesToFilter, filterType) {
 export const reducer = (state=initialState, action) => {
     switch (action.type) {
         case GET_ALL_RECIPES:
-            return {...state, allRecipes:action.payload, activeRecipes:action.payload, defaultRecipeSort:action.payload};
+            return {...state, allRecipes:action.payload, recipesByName:action.payload, activeRecipes:action.payload, defaultRecipeSort:action.payload};
 
 
         case GET_RECIPE_BY_NAME:;
-            let sortedDefault = action.payload;
-            if (state.activeSort !== "default") {
-                action.payload = sort(action.payload,state.activeSort)
-            };
-            if (state.activeFilter !== "todas") {
-                action.payload = filter(action.payload,state.activeFilter);
-            }
-            return { ...state, activeRecipes:action.payload, defaultRecipeSort:sortedDefault};
+            return { ...state, recipesByName:action.payload, activeRecipes:action.payload, defaultRecipeSort:action.payload, activeSort:"default", activeFilter:"todas"};
         
 
         case GET_RECIPE_DETAIL:
             return {...state, recipeDetail:action.payload};
-
 
         case GET_DIETS:
             return {...state, diets:action.payload};
@@ -90,7 +83,7 @@ export const reducer = (state=initialState, action) => {
 
 
         case FILTER_RECIPES:
-            let filteredRecipes  = filter([...state.allRecipes],action.payload);
+            let filteredRecipes  = filter([...state.recipesByName],action.payload);
             
             let activeSort = state.activeSort;
             const defaultSort = [...filteredRecipes];

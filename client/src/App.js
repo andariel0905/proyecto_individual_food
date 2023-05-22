@@ -12,7 +12,6 @@ import * as actions from "./redux/actions";
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(()=>(dispatch(actions.getAllRecipes())),[]);
   useEffect(() =>(dispatch(actions.getDiets())), []);
   const location = useLocation();
   return (
