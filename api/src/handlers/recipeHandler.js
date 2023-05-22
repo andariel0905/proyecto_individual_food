@@ -40,6 +40,10 @@ async function getRecipeHandler (req,res) {
 async function postRecipeHandler (req,res) {
     let {title,image,summary,healthScore,steps,diets} = req.body;
     if (!title) {res.status(400).send("No se puede crear la receta. Envíe un nombre")};
+	if (!summary) {res.status(400).send("No se puede crear la receta. Envíe un resumen")};
+	if (!healthScore) {res.status(400).send("No se puede crear la receta. Envíe un puntaje de salud")};
+	if (!steps) {res.status(400).send("No se puede crear la receta. Envíe las instrucciones")};
+	if (!diets.length) {res.status(400).send("No se puede crear la receta. Envíe una o más dietas")};
     const createdRecipe = await Recipe.create({title,image,summary,healthScore,steps});
     await createdRecipe.addDiet(diets);
 
