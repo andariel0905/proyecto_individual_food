@@ -6,7 +6,7 @@ import {
     GET_RECIPE_DETAIL,
     GET_DIETS,
     SORT,
-    FILTER_RECIPES
+    FILTER_RECIPES,
 } from "./types"
 
 export const getAllRecipes = () => async (dispatch) => {
@@ -20,13 +20,7 @@ export const getAllRecipes = () => async (dispatch) => {
 };
 
 export const getRecipeByName = (name) => async (dispatch) => {
-    axios.get(`http://localhost:3001/recipes?title=${name}`)
-        .then(response => {
-            dispatch({
-				type: GET_RECIPE_BY_NAME,
-				payload: response.data
-			});
-        });
+    dispatch({type: GET_RECIPE_BY_NAME, payload: name});
 };
 
 export const getRecipeDetail = (id) => async (dispatch) => {

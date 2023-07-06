@@ -7,12 +7,39 @@ import * as actions from "../../redux/actions";
 
 const CardsContainer= () => {
     const dispatch = useDispatch();
-    useEffect(()=>(dispatch(actions.getAllRecipes())),[]);
+    
+    let recipes = useSelector(state => state.allRecipes);
+    
+    useEffect(()=>(dispatch(!recipes.length && actions.getAllRecipes())),[]);
 
-    const recipes = useSelector(state => state.activeRecipes);
+    const searchQuery = useSelector(state => state.searchQuery);
+    const filter = useSelector(state => state.activeFilter);
+    const sort = useSelector(state => state.activeSort);
     const reduxState = useSelector(state => state);
     
-    
+    recipes = recipes.filter(recipe => recipe.title.includes(searchQuery));
+
+    if(filter === "API" || filter === "BDD") { 
+        recipes = recipes.filter(recipe => recipe.origin === filter)
+    }
+    else if(filter !== "todas") {
+        recipes = recipes.filter(recipe => recipe.diets.includes(filter))
+    }
+
+    if (sort === "A") {
+        recipes = recipes.sort((a,b) => (a.title > b.title ? 1 : -1))
+    }   
+    if (sort === "D") {
+        recipes = recipes.sort((a,b) => (a.title < b.title ? 1 : -1))
+    }
+    if (sort === "plus") {
+        recipes = recipes.sort((a,b) => (b.healthScore - a.healthScore))
+    }
+    if (sort === "minus") {
+        recipes = recipes.sort((a,b) => (a.healthScore - b.healthScore))
+    }
+
+
     const RECIPES_PER_PAGE = 9;
 
     const [currentPage, setCurrentPage] = useState(1);

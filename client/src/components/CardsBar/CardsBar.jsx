@@ -18,8 +18,6 @@ function CardsBar () {
     
     function getRecipeName(name) {
 		dispatch(actions.getRecipeByName(name));
-        setSortValue("default");
-        setFilterValue("todas");
 	};
 
     function sortHandler (e) {
